@@ -1,0 +1,59 @@
+##########################################################
+#+------------------------------------------------------+#
+#|            CropCoin v1.0.0 by 808sFinest             |#
+#+------------------------------------------------------+#
+##########################################################
+
+# The permission to use /cropcoin give is "cropcoin.give".
+# The permission to use /cropcoin remove is "cropcoin.remove".
+# The permission to use /cropcoin set is "cropcoin.set".
+# The permission to use /cropcoin balance is "cropcoin.balance".
+# The permission to use /cropcoin balance is "cropcoin.balance.other".
+
+# The message the sender will receive when the inputted player is not a player.
+invalid-player: "&cError: the player you entered is invalid."
+
+# The message the sender will receive when the inputted amount is not a number.
+invalid-amount: "&cError: the amount you entered is not a number."
+
+# The message the sender will receive when the sender doesn't have the permission.
+# Permissions can be found at the top of this.
+no-permission: "&cError: you do not have permission to execute this command."
+
+# The message the console will receive when using /cropcoin balance.
+not-a-player: "&cError: you must be a player to use this command."
+
+# The command usage message.
+command-usage:
+  - "&a&m                                                                   "
+  - "&a/cropcoin &7(&agive&7/&aremove&7/&aset&7) &7<&fplayer&7> <&famount&7>"
+  - "&a/cropcoin &7(&abal&7/&abalance&7) &7(player)"
+  - "&a&m                                                                   "
+
+# The message the sender will receive when checking crop coin balance.
+balance-sender: "&7Your crop coin balance is &f&l%balance%&7."
+
+# The message the sender will receive when checking another player's crop coin balance.
+# You can use %receiver_name%, %%amount%, or %receiver_balance% on these below.
+balance-receiver: "&f%receiver_name%&7's balance is &f&l%receiver_balance%&7."
+
+# You can use %receiver_name%, %%amount%, or %receiver_balance% on these below.
+
+# The message the sender will receive when giving crop coins to a player.
+give-sender: "&7You have given &f%receiver_name% &l%amount% &7crop coins."
+
+# The message the receiver will receive when given crop coins.
+give-receiver: "&7You have received &f&l%amount% &7crop coins."
+
+# The message the sender will receive when removing crop coins from a player.
+remove-sender: "&7You have removed &f&l%amount% &7crop coins from &f%receiver_name%&7."
+
+# The message the receiver will receive when crop coin gets removed from player's balance.
+remove-receiver: "&f&l%amount% &7crop coins have been removed from your balance."
+
+# The message the sender will receive when setting a player's crop coin balance.
+set-sender: "&7You have set &f%receiver_name%&7's crop coin balance to &f&l%receiver_balance%&7."
+
+# The message the receive will receive when player's crop coin balance is changed.
+set-receiver: "&7Your crop coin balance is now &f&l%receiver_balance%&7."
+

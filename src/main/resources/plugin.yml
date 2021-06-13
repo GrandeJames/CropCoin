@@ -1,0 +1,30 @@
+name: CropCoin
+version: 1.0.0
+main: me.finest.cropcoin.cropcoin.CropCoin
+api-version: 1.16
+softdepend: [PlaceholderAPI]
+author: 808sFinest
+
+commands:
+  cropcoin:
+    aliases:
+      - cc
+
+permissions:
+  cropcoin.give:
+    description: Allows use of /cropcoin give...
+    default: op
+  cropcoin.remove:
+    description: Allows use of /cropcoin remove...
+    default: op
+  cropcoin.set:
+    description: Allows use of /cropcoin set...
+    default: op
+  cropcoin.balance:
+    description: Allows use of /cropcoin balance
+    default: op
+  cropcoin.balance.other:
+    description: Allows use of /cropcoin balance <player<
+    default: op
+
+
