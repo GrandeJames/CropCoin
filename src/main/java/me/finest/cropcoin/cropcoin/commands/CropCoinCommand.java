@@ -2,8 +2,8 @@
  * This will set the commands.
  * The commands:
  * Usage: /cropcoin <give/remove/set> (playerName) (amount)
+ *        / cropcoin <bal/balance> (playerName)
  */
-
 package me.finest.cropcoin.cropcoin.commands;
 
 import me.finest.cropcoin.cropcoin.Balance;
@@ -125,7 +125,6 @@ public class CropCoinCommand implements CommandExecutor {
      * Check if sender used the correct command usage.
      *
      * @param arg0
-     * @return
      */
     private boolean hasCorrectUsage(String arg0) {
         if (arg0.equalsIgnoreCase("give") ||

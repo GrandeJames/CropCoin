@@ -7,35 +7,22 @@ package me.finest.cropcoin.cropcoin;
 
 public class Balance {
 
-    // Properties
     private String uuid;
     private int balance;
 
-    private final CropCoin plugin;
-
-    /**
-     * Constructor
-     */
-    public Balance(String uuid, CropCoin plugin) {
-        this(0, uuid, plugin);
+    public Balance(String uuid) {
+        this(0, uuid);
     }
 
-    /**
-     * Constructor
-     */
-    public Balance(int balance, String uuid, CropCoin plugin) {
-        this.plugin = plugin;
+    public Balance(int balance, String uuid) {
 
         this.setUUID(uuid);
         this.setBalance(balance);
     }
 
 
-    // Getters
-
-
     /**
-     * Get player's cropCoin balance.
+     * Get player's crop coin balance.
      *
      * @return The player's cropCoin balance.
      */
@@ -44,7 +31,7 @@ public class Balance {
     }
 
     /**
-     * Ge the player's uuid.
+     * Get the player's uuid.
      *
      * @return The player's uuid.
      */
@@ -53,11 +40,10 @@ public class Balance {
     }
 
 
-    // Setters
-
-
     /**
      * Set the player's uuid.
+     *
+     * @param uuid The player's uuid.
      */
     private void setUUID(String uuid) {
         this.uuid = uuid;
@@ -75,13 +61,10 @@ public class Balance {
     }
 
 
-    // Other
-
-
     /**
      * Add to the player's cropCoin balance.
      *
-     * @param amtToGive The number of cropCoin to add.
+     * @param amtToGive The number of cropCoins to add.
      */
     public void give(int amtToGive) {
         setBalance(getBalance() + amtToGive);
@@ -90,9 +73,10 @@ public class Balance {
     /**
      * Remove a certain amount from the player's cropCoin balance.
      *
-     * @param amtToRemove The number of cropCoin to remove.
+     * @param amtToRemove The number of cropCoins to remove.
      */
     public void remove(int amtToRemove) {
+        // Remove from the player's balance, but don't go to less than 0.
         if (setBalance(getBalance() - amtToRemove) < 0) {
             setBalance(0);
         }

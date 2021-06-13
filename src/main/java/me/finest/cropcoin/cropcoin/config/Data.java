@@ -5,7 +5,6 @@ package me.finest.cropcoin.cropcoin.config;
 
 import me.finest.cropcoin.cropcoin.Balance;
 import me.finest.cropcoin.cropcoin.CropCoin;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -20,20 +19,19 @@ public class Data {
     private FileConfiguration data;
 
     // List of all the balances.
-    private List<Balance> balances = new ArrayList<Balance>();
+    private List<Balance> balances;
 
     private final CropCoin plugin;
 
-    /**
-     * Constructor
-     */
     public Data(CropCoin plugin) {
+        balances = new ArrayList<>();
+
         this.plugin = plugin;
         this.loadData();
     }
 
     /**
-     * Load the custom config.
+     * Load the data file.
      */
     public void loadData() {
         if (dataFile == null) {
@@ -111,7 +109,7 @@ public class Data {
             }
         }
         // Give a new balance.
-        Balance balance = new Balance(0, uuid, plugin);
+        Balance balance = new Balance(0, uuid);
         this.addBalance(balance);
 
         return balance;
@@ -120,12 +118,12 @@ public class Data {
     /**
      * Add all the balances from the data file.
      */
-    public void addBalancesFromDataFile() {
+    private void addBalancesFromDataFile() {
         // Set the balances of each player already in the config.
         if (this.getConfig().getConfigurationSection("Players") != null) {
             for (String uuid : this.getConfig().getConfigurationSection("Players").getKeys(false)) {
                 int amtInBalance = this.getConfig().getInt("Players." + uuid);
-                this.addBalance(new Balance(amtInBalance, uuid, plugin));
+                this.addBalance(new Balance(amtInBalance, uuid));
             }
         }
     }
@@ -135,10 +133,7 @@ public class Data {
      *
      * @param balance The balance to add.
      */
-    public void addBalance(Balance balance) {
-        if (balances == null) {
-            this.balances = new ArrayList<Balance>();
-        }
+    private void addBalance(Balance balance) {
         this.balances.add(balance);
     }
 }
