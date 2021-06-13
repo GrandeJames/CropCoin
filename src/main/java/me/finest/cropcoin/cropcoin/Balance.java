@@ -1,6 +1,6 @@
 /**
  * This may be used to modify a player's balance.
- * This can give, remove, set, or pay.
+ * This can give, remove, or set.
  */
 
 package me.finest.cropcoin.cropcoin;
@@ -96,16 +96,5 @@ public class Balance {
         if (setBalance(getBalance() - amtToRemove) < 0) {
             setBalance(0);
         }
-    }
-
-    /**
-     * Give another player's cropCoin balance to another.
-     *
-     * @param amtToPay The amount of cropCoin to pay.
-     * @param giverBalance The giver's cropCoin balance.
-     */
-    public void pay(int amtToPay, Balance giverBalance) {
-        giverBalance.remove(amtToPay);
-        give(amtToPay);
     }
 }
